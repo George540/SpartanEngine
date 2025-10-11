@@ -65,8 +65,8 @@ void Viewport::OnTickVisible()
         {
             if (RHI_Device::IsValidResolution(width, height))
             {
-                Renderer::SetViewport(static_cast<float>(width), static_cast<float>(height)); 
-                
+                Renderer::SetViewport(static_cast<float>(width), static_cast<float>(height));
+
                 if (!resolution_set)
                 {
                     // only set the render and output resolutions once
@@ -111,7 +111,7 @@ void Viewport::OnTickVisible()
     }
 
     // entity transform gizmo (will only show if an entity has been picked)
-    if (Renderer::GetOption<bool>(spartan::Renderer_Option::TransformHandle))
+    if (Renderer::GetRenderOptionsPool().GetOption<bool>(spartan::Renderer_Option::TransformHandle))
     {
         ImGui::TransformGizmo::tick();
     }

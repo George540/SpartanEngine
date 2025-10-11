@@ -31,6 +31,8 @@ namespace spartan
     const uint32_t renderer_max_draw_calls          = 20000;
     const uint32_t renderer_max_instance_count      = 1024;
 
+    using RenderOptionType = std::variant<bool, int, float, uint32_t>;
+
     enum class Renderer_Option : uint32_t
     {
         Aabb,
@@ -90,7 +92,7 @@ namespace spartan
     {
         frame
     };
-    
+
     enum class Renderer_BindingsSrv
     {
         // g-buffer
@@ -102,7 +104,7 @@ namespace spartan
 
         // other
         ssao = 5,
-    
+
         // misc
         tex   = 6,
         tex2  = 7,
@@ -186,7 +188,7 @@ namespace spartan
         auto_exposure_c,
         max
     };
-    
+
     enum class Renderer_RenderTarget : uint8_t
     {
         gbuffer_color,
